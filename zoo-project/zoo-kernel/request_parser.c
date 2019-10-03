@@ -22,6 +22,12 @@
  * THE SOFTWARE.
  */
 
+
+#ifndef WIN32
+	#define NO_FCGI_DEFINES
+#endif
+
+
 #include "request_parser.h"
 #include "service_internal.h"
 #include "server_internal.h"

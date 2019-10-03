@@ -25,6 +25,10 @@
 extern "C" int yylex ();
 extern "C" int crlex ();
 
+#ifndef WIN32
+	#define NO_FCGI_DEFINES
+#endif
+
 #ifdef META_DB
 #include "ogrsf_frmts.h"
 #if GDAL_VERSION_MAJOR >= 2

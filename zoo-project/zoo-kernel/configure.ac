@@ -73,13 +73,13 @@ AC_ARG_WITH([json],
     [JSON_DIR="$withval"], [JSON_DIR="/usr/"])
 if test "x$JSON_DIR" != "x"
 then
-	JSON_CPPFLAGS="-DUSE_JSON -I$JSON_DIR/include/json-c/"
+	JSON_CPPFLAGS="-DUSE_JSON -I$JSON_DIR/include"
 	JSON_LDFLAGS="-L$JSON_DIR/lib -ljson-c"
 	CPPFLAGS_SAVE="$CPPFLAGS"
 	CPPFLAGS="$JSON_CPPFLAGS"
 	LIBS_SAVE="$LIBS"
 	LIBS="$JSON_LDFLAGS"
-	AC_CHECK_HEADERS([json_object.h],
+	AC_CHECK_HEADERS([json-c/json_object.h],
 		[], [AC_MSG_ERROR([could not find header file json_object.h])])
 	AC_CHECK_LIB([json-c], [json_object_new_object],
 		[], [AC_MSG_ERROR([could not find function in json-c library])])
